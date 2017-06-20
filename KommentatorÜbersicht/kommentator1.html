@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Kommentatorenübersicht</title>
+<link rel="icon" href="css/icon.ico">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+<link rel="stylesheet" href="css/custom.css">
+<script src="js/communicator.js"></script>
+
+</head>
+<body>
+	<div class="cc">
+		<div class="row">
+			<div class="col push-s1 s10">
+				<div class="row">
+					<div class="input-field col s2">
+						<select id="player_ageclass" onchange='RequestupdateList();'>
+							<option selected value="0">Alle</option>
+							<option value="1a">1a</option>
+							<option value="1b">1b</option>
+							<option value="1c">1c</option>
+							<option value="1d">1d</option>
+							<option value="1e">1e</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+						</select> <label>Altersklasse</label>
+					</div>
+					<button class="btn" onClick='RequestupdateList();'>Update</button>
+				</div>
+				<div class="row">
+					<table id="sortit" class="striped tablesorter">
+						<thead>
+							<tr>
+								<th>Rang</th>
+								<th>Startnummer</th>
+								<th>Name</th>
+								<th>Alter</th>
+								<th>Klasse</th>
+								<th>Verein</th>
+								<th>Strafzeit 1</th>
+								<th>Zeit 1</th>
+								<th>Strafzeit 2</th>
+								<th>Zeit 2</th>
+								<th>Zeit Gesamt</th>
+							</tr>
+						</thead>
+						<tbody id="box1mainOutsideDiv">
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+</body>
+</html>

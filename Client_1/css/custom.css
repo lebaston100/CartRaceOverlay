@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+html {
+	height: 1080px;
+	width: 1920px;
+}
+
+body {
+	height: 1080px;
+	width: 1920px;
+	margin: 0px;
+	overflow: hidden;
+	font-family: Montserrat;
+	background-color: rgba(0, 0, 0, 0);
+}
+
+.senderlogodiv {
+	position: fixed;
+	left: 1550px;
+	top: 60px;
+	opacity: 0.0;
+}
+
+#senderlogo {
+	height: auto;
+	width: 200px;
+}
+
+.site {
+	margin: 1em;
+}
+
+#box1mainOutsideDiv {
+	font-family: MONOSPACE;
+	opacity: 0.0;
+	position: fixed;
+	left: 80px;
+	top: 60px;
+}
+
+#cd_anim_mainbox {
+	opacity: 0;
+}
+
+.currentdriverbox {
+	position: fixed;
+	left: 1400px;
+	top: 890px;
+	width: 280px;
+}
+.clublogobox {
+	position: fixed;
+	float: left;
+}
+#clublogo {
+	width: 135px;
+	height: 135px;
+	margin-right: 5px;
+	border-right: 5px solid #000000;
+}
+.cd_rak_left {
+	height: 100%;
+	width: 50%;
+	float: left;
+	border-right:3px solid #000000;
+}
+.cd_rak_right {
+	height: 100%;
+	width: 48%;
+	float: right;
+}
+.cd_timebox_time {
+	width: 280px;
+	height: 100%;
+	float: left;
+}
+.cd_timebox_penalty {
+	bottom: 45px;
+	position: absolute;
+	left: 200px;
+	height: 100%;
+	width: 80px;
+	background-color: red;
+}
+.cd_maintextbox {
+	position: absolute;
+	left: 140px;
+	height: 135px;
+	width: 100%;
+}
+.cd_textbox {
+	height: 43.6666666666px;
+	line-height: 100%;
+	font-size: 35px;
+	color: white;
+}
+#cd_namebox {
+	background-color: #404040;
+	border-bottom:2px solid #000000;
+}
+#cd_rankandclassbox {
+	background-color: #b3b3b3;
+	border-bottom:2px solid #000000;
+}
+#cd_timebox {
+	background-color: #93c47d;
+	overflow: hidden;
+	position: relative;
+}
+.centertext {
+	text-align: center;
+	display: block;
+  	position: relative;
+  	top: 50%;
+  	transform: translateY(-50%);
+}

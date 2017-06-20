@@ -1,0 +1,57 @@
+textarea.materialize-textarea {
+    overflow-y: scroll;
+}
+
+.cc {
+	margin: 3em;
+}
+
+.spacer {
+	margin: 10px;
+}
+
+#topBar {
+	padding: 1em;
+	padding-bottom: 5px;
+	background: rgb(0, 255, 0);
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+#topbarrow {
+	margin-bottom: 10px;
+}
+
+#row_add_penalty_time {
+	font-weight: bold;
+}
+
+#row_remove_penalty_time {
+	font-weight: bold;
+}
+
+#id_set_class_active {
+	height: 100%
+}
+
+#box1mainOutsideDiv {
+	margin-top: 2em;
+}
+td, th {
+	padding: 5px;
+}
+#toast-container {
+  top: auto !important;
+  right: auto !important;
+  bottom: 8%;
+  left: 4%;
+}
+
+.magicbtt1 {
+	width: 49%;
+}
+
+.magicbtt2 {
+	width: 100%;
+	height: auto;
+}

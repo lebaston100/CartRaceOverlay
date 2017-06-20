@@ -1,0 +1,1 @@
+netsh advfirewall firewall add rule name=lebTVWssControl protocol=TCP dir=in localport=8000 action=allow

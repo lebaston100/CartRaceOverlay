@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Controller</title>
+<link rel="icon" href="css/icon.ico">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+<link rel="stylesheet" href="css/custom.css">
+<script src="js/communicator.js"></script>
+
+<script>
+	function animMI() {
+		sendCommand("6901", "1");
+	}
+	function animMO() {
+		sendCommand("6901", "0");
+	}
+	function anim2I() {
+		sendCommand("6902", "1");
+	}
+	function anim2O() {
+		sendCommand("6902", "0");
+	}
+	function animOverviewI() {
+		sendCommand("6905", "1");
+	}
+	function animOverviewO() {
+		sendCommand("6905", "0");
+	}
+</script>
+
+</head>
+<body>
+	<div class="col s12" id="topBar">
+		<div class="row" id="topbarrow">
+			Aktiver Fahrer: Startnummer: <span id="field_current_driver_startnumber">0</span>&emsp;Name: <span
+				id="field_current_driver">Keiner</span>&emsp;Verbleibende Fahrer: <span id="field_remaining_drivers">0</span>
+		</div>
+		<div class="row" id="topbarrow">
+			Aktuelle Altersklasse: <span id="field_ageclass"></span> &emsp;Zeit 1: <span id="field_time1">0</span> &emsp;Zeit 2:
+			<span id="field_time2">0</span> &emsp;Strafsekunden R1: <span id="field_current_penalty_1">0</span>&emsp;Strafsekunden
+			R2: <span id="field_current_penalty_2">0</span>&emsp;Gesamtzeit: <span id="field_time_result">0</span>
+		</div>
+	</div>
+	<div class="cc">
+		<div class="row">
+			<div class="col s3">
+				<div class="row valign-wrapper" id="row_add_penalty_time">
+					<div class="col s4 valign center-align">Strafzeit +</div>
+					<div class="col s4">
+						<button class="btn magicbtt2" onClick='penalty2();'>+2sec</button>
+					</div>
+					<div class="col s4">
+						<button class="btn magicbtt2" onClick='penalty10();'>+10sec</button>
+					</div>
+				</div>
+				<div class="row valign-wrapper" id="row_remove_penalty_time">
+					<div class="col s4 valign center-align">Strafzeit -</div>
+					<div class="col s4">
+						<button class="btn magicbtt2" onClick='penalty2Min();'>-2sec</button>
+					</div>
+					<div class="col s4">
+						<button class="btn magicbtt2" onClick='penalty10Min();'>-10sec</button>
+					</div>
+
+				</div>
+			</div>
+			<div class="col s4">
+				<div class="row">
+					<table class="bordered">
+						<thead>
+							<tr>
+								<th>Rang</th>
+								<th>Name</th>
+								<th>Zeit 1</th>
+								<th>Zeit 2</th>
+								<th>Zeit Gesamt</th>
+							</tr>
+						</thead>
+						<tbody id="box1mainOutsideDiv">
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="col s5">
+				<div class="row valign-wrapper">
+					<div class="input-field col s6">
+						<select id="select_ageclass">
+							<option value="1a">1a</option>
+							<option value="1b">1b</option>
+							<option value="1c">1c</option>
+							<option value="1d">1d</option>
+							<option value="1e">1e</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+						</select> <label>Altersklasse auswählen</label>
+					</div>
+					<div class="col s6">
+						<button class="btn btn-large magicbtt2" onClick='setActiveAgeclassOverride();'>Altersklasse Anzeigen</button>
+					</div>
+
+				</div>
+				<div class="row valign-wrapper">
+					<div class="input-field col s6">
+						<select id="playerselect">
+						</select> <label>Fahrer auswählen</label>
+					</div>
+					<div class="col s6">
+						<button class="btn btn-large magicbtt2 valign" onClick='setActiveDriver();'>Fahrer aktiv schalten</button>
+					</div>
+				</div>
+				<div class="row">
+					<button class="btn btn-large magicbtt1" onClick='animMI();' id="btt_anim_scoreboard_in">Animate Scoreboard
+						In</button>
+					<button class="btn btn-large magicbtt1" onClick='animMO();' id="btt_anim_scoreboard_out">Animate
+						Scoreboard Out</button>
+				</div>
+				<div class="row">
+					<button class="btn btn-large magicbtt1" onClick='anim2I();' id="btt_anim_curdriver_in">Animate Aktueller
+						Fahrer In</button>
+					<button class="btn btn-large magicbtt1" onClick='anim2O();' id="btt_anim_curdriver_out">Animate Aktueller
+						Fahrer Out</button>
+				</div>
+				<div class="row">
+					<button class="btn btn-large magicbtt1" onClick='animMI();anim2I();' id="btt_anim_all_in">Animate alles In</button>
+					<button class="btn btn-large magicbtt1" onClick='animMO();anim2O();' id="btt_anim_all_out">Animate alles
+						Out</button>
+				</div>
+				<div class="row">
+					<button class="btn btn-large magicbtt1" onClick='animOverviewI();' id="btt_anim_all_in">Animate
+						&Uuml;bersicht In</button>
+					<button class="btn btn-large magicbtt1" onClick='animOverviewO();' id="btt_anim_all_out">Animate
+						&Uuml;bersicht Out</button>
+				</div>
+				<div class="row">
+					<button class="btn btn-large magicbtt1" onClick='sendCommand("6904", "1");' id="btt_anim_senderlogo_in">Animate
+						Senderlogo In</button>
+					<button class="btn btn-large magicbtt1" onClick='sendCommand("6904", "0");' id="btt_anim_senderlogo_out">Animate
+						Senderlogo Out</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+</body>
+</html>

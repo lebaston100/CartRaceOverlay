@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Database Update</title>
+<link rel="icon" href="css/icon.ico">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+<link rel="stylesheet" href="css/custom.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+<script src="js/communicator.js"></script>
+</head>
+<body>
+	<div class="cc">
+		<div class="row">
+			<div class="col s5">
+				<div class="row">
+					<div class="input-field col s12">
+						<select id="playerselect">
+							<option value="1">Option 1</option>
+							<option value="2">Option 2</option>
+						</select> <label>Player Select</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<button class="btn magicbtt2" onClick='getPlayers();'>Update Playerlist</button>
+						<button class="btn magicbtt2" onClick='clearDB();'>Clear DB</button>
+						<button class="btn magicbtt2" onClick='clearStats();'>Clear Stats</button>
+					</div>
+				</div>
+			</div>
+			<div class="col push-s1 s6">
+				<div class="row">
+					<form class="col s12" id="updateForm">
+						<div class="row">
+							<div class="input-field col s8">
+								<input placeholder="" id="player_full_name" type="text" class="validate" tabindex="1"> <label
+									for="player_full_name">Player Name</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s4">
+								<input placeholder="" id="player_display_name" type="text" class="validate" maxlength="8" tabindex="2">
+								<label for="player_display_name">Player Display Name</label>
+							</div>
+							<div class="input-field col s4">
+								<input placeholder="" id="player_club" type="text" class="validate" tabindex="3"> <label
+									for="player_club">Verein</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s4">
+								<input placeholder="" id="player_startnumber" type="number" class="validate" tabindex="4"> <label
+									for="player_startnumber">Startnummer</label>
+							</div>
+							<div class="input-field col s4">
+								<input placeholder="" id="player_age" type="number" class="validate" min="0" max="99" tabindex="5"> <label
+									for="player_age">Alter</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s4">
+								<select id="player_gender" tabindex="6">
+									<option selected value="M">Männlich</option>
+									<option value="W">Weiblich</option>
+								</select> <label>Geschlecht</label>
+							</div>
+							<div class="input-field col s4">
+								<select id="player_ageclass" tabindex="7">
+									<option selected value="1a">1a</option>
+									<option value="1b">1b</option>
+									<option value="1c">1c</option>
+									<option value="1d">1d</option>
+									<option value="1e">1e</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+								</select> <label>Altersklasse</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s4">
+								<input placeholder="" id="player_time_1" type="text" class="validate" maxlength="8"><label
+									for="player_time_1">Rundenzeit 1</label>
+							</div>
+							<div class="input-field col s4">
+								<input placeholder="" id="player_time_2" type="text" class="validate" maxlength="8"><label
+									for="player_time_2">Rundenzeit 2</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s4">
+								<input placeholder="" id="player_penalty_time_1" type="number" class="validate" min="0" max="1000"> <label
+									for="player_penalty_time">Zeitstrafe Runde 1</label>
+							</div>
+							<div class="input-field col s4">
+								<input placeholder="" id="player_penalty_time_2" type="number" class="validate" min="0" max="1000"> <label
+									for="player_penalty_time">Zeitstrafe Runde 2</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s4">
+								<input placeholder="" value="" id="player_time_result" type="text" class="validate" maxlength="8"><label
+									for="player_time_result">Zeit Gesamt</label>
+							</div>
+							<div class="input-field col s4">
+								<input placeholder="" id="player_rank" type="number" class="validate" min="0" max="999"> <label
+									for="player_rank">Rang</label>
+							</div>
+
+							<div class="input-field col s3">
+								<input placeholder="" value="" disabled id="playeridinDB" type="text" class="validate"><label
+									for="playeridinDB">Key (DO NOT CHANGE!)</label>
+							</div>
+						</div>
+						<div class="row">
+							<button class="btn magicbtt" type="button" onClick="updatesetPlayerData();" tabindex="8">Update/Set</button>
+							<button class="btn magicbtt" type="button" onClick="prepareFormForNewPlayer();" tabindex="9">Add new
+								Player</button>
+							<button class="btn magicbtt" type="button" onClick="removePlayer();">Remove Player</button>
+							<button class="btn magicbtt" type="button" onClick='sendCommand("6010", "0");'>Ränge Updaten</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
