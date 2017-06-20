@@ -1,0 +1,1 @@
+For server setup see [the HTMLOverlayFramework wiki page](https://github.com/lebaston100/htmlOverlayFramework/wiki)
